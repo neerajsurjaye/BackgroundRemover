@@ -2,9 +2,13 @@ const jimp = require('jimp');
 
 let scripts = (() => {
 
-    const handlefile = async (req, res) => {
+    const getCss = (req, res) => {
+        res.sendfile('./style.css', { root: __dirname });
+    }
+
+    const handleFile = async (req, res) => {
         console.log("ran handlefile");
-        console.log(req.file.buffer);
+        // console.log(req.file.buffer);
 
         if (!req.file) {
             res.send("Error : contact developer");
@@ -18,7 +22,7 @@ let scripts = (() => {
         let width = image.getWidth();
         let height = image.getHeight();
 
-        console.log({ width, height });
+        // console.log({ width, height });
 
         for (let x = 0; x < width; x++) {
             for (let y = 0; y < height; y++) {
@@ -36,7 +40,7 @@ let scripts = (() => {
         const imageBuffer = await image.getBufferAsync(jimp.AUTO);
         await image.writeAsync("./image.png");
 
-        console.log(imageBuffer);
+        // console.log(imageBuffer);
 
         res.set({
             "Content-Type": "file",
@@ -53,7 +57,7 @@ let scripts = (() => {
     }
 
 
-    return { handlefile, home }
+    return { handleFile, home, getCss }
 
 })();
 

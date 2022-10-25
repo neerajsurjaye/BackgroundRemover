@@ -6,22 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>A Background removal tool</h1>
-
-    <form method="POST" action="/image" enctype="multipart/form-data">
-        <div>
-            <label for="image">Upload your image</label>
-            <input type="file" name="image" required>
-        </div>
-        <div>
-            <input type="submit" value="upload">
+    <div class="container">
+        <div class="header">
+            <div class="header-text">Remove Background</div>
         </div>
 
-        <p>Version : beta 0.1.0</p>
-    </form>
+        <form method="POST" action="/image" enctype="multipart/form-data" class="form">
+            <div class="form-items">
+
+                <label for="image" class="upload-label">Upload your image : </label>
+                <input class="btn" type="file" name="image" required>
+
+                <input class="btn" type="submit" value="upload">
+            </div>
+
+        </form>
+        <p>Version : beta 0.1.0 || <a href="https://github.com/neerajsurjaye">github : neerajsurjaye</a> </p>
+
+
+    </div>
 
 </body>
 

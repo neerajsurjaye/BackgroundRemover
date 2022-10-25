@@ -14,10 +14,11 @@ const scripts = require('./scripts');
 
 
 app.get('/', scripts.home);
-app.post('/image', upload, scripts.handlefile);
+app.post('/image', upload, scripts.handleFile);
+app.get('/style.css', scripts.getCss);
 
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log("listing on " + PORT);
 })
